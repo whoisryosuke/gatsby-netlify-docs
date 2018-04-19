@@ -1,0 +1,15 @@
+backend:
+  name: github
+  repo: whoisryosuke/gatsby-netlify-docs
+
+media_folder: static/assets
+
+collections:
+  - name: docs
+    label: Docs
+    folder: docs
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
