@@ -1,8 +1,8 @@
 ---
-path: "/introduction/welcome"
+path: "/introduction/quickstart"
 section: "introduction"
 date: "2017-11-07"
-title: "Introduction"
+title: "Quick Start Guide"
 ---
 
 Welcome to the Kushy API! You can use our API to access Kushy API endpoints, which can get information on various cannabis strains, products, shops, and brands in our database.

@@ -3,18 +3,20 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Header from '../components/header'
+import Sidebar from '../components/sidebar'
 import './index.css'
 
 const Layout = ({ children, data }) => (
   <div>
     <Helmet
-      title={data.site.siteMetadata.title}
+      title={data.siteTitle.siteMetadata.title}
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header siteTitle={data.site.siteMetadata.title} />
+    <Header siteTitle={data.siteTitle.siteMetadata.title} />
+    <Sidebar navigation={data.sidebar.edges} />
     <div
       style={{
         margin: '0 auto',
@@ -35,10 +37,21 @@ Layout.propTypes = {
 export default Layout
 
 export const query = graphql`
-  query SiteTitleQuery {
-    site {
+  query AppQuery {
+    siteTitle: site {
       siteMetadata {
         title
+      }
+    },
+    sidebar: allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            path
+            section
+            title
+          }
+        }
       }
     }
   }
